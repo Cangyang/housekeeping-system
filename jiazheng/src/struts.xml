@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+  <struts>    
+     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+     <constant name="struts.devMode" value="true" />
+     
+     <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+     <constant name="struts.multipart.saveDir " value="d:/temp" />
+     
+    <package  name="SecurityCode" extends="struts-default" namespace="/Security">
+       <result-types>
+           <result-type name="ValidateImage" class="com.ytf.action.ImageResult" />
+       </result-types>    
+       <action name="ValidateImage" class="com.ytf.action.ImageAction" method="doDefault">
+           <result name="image" type="ValidateImage" />
+       </action>
+    </package>
+    <package name="default" extends="struts-default" namespace="/">
+       <action name="LoginAction" class="com.ytf.action.LoginAction" >
+           <result name="success" type="redirectAction">LoginSuccess</result>
+           <result name="input">login.jsp</result>   
+       </action>
+       <action name="Login">
+           <result>login.jsp</result>
+       </action>
+       <action name="LoginSuccess">
+           <result>index.jsp</result>
+       </action>
+       <action name="Logout" class="com.ytf.action.LoginAction" method="Logout">
+           <result name="logout">index.jsp</result>
+       </action>
+       <action name="Register">
+           <result>register.jsp</result>
+       </action>
+       <action name="RegisterAction" class="com.ytf.action.RegisterAction">
+           <result name="input">register.jsp</result>
+           <result name="success" type="redirectAction">Login</result>
+       </action>
+       <action name="getPass">
+          <result>retrievePass.jsp</result>
+       </action>
+       <action name="SendPass" class="com.ytf.action.ForgetPass" method="SendPass">
+           <result name="input">retrievePass.jsp</result>
+           <result name="success">retrievePass.jsp</result>
+       </action>
+       <action name="BookBm" class="com.ytf.action.BookBm" method="bookBm">
+           <result name="success">book.jsp</result>
+           <result name="input">book.jsp</result>
+       </action>
+    </package>
+    <package name="userOption" extends="struts-default" namespace="/">  
+       <action name="addDetail" class="com.ytf.action.userOption"  method="update">
+           <interceptor-ref name="fileUpload">
+              <param name="allowedTypes">
+                image/bmp,image/png,image/gif,image/jpg,image/gif,image/jpeg
+              </param>
+           </interceptor-ref>
+           <interceptor-ref name="defaultStack" />
+           <result name="success">employee/psinfo.jsp</result>
+           <result name="error">employee/psinfo.jsp</result>
+           <result name="input">employee/psinfo.jsp</result>
+       </action>
+       <action name="addInfo" class="com.ytf.action.userOption" method="addInfo">
+           <result name="success">employee/addinfo.jsp</result>
+       </action>
+       <action name="bmOption" class="com.ytf.action.userOption" method="bmOption">
+           <result name="success">employee/mybook.jsp</result>
+       </action>
+       <action name="gzAddInfo" class="com.ytf.action.userOption" method="gzAddInfo">
+           <result name="success">employer/addinfo.jsp</result>
+       </action>
+       <action name="publishCard" class="com.ytf.action.userOption" method="publishCard">
+           <result name="success">company/mybusicard.jsp</result>
+       </action>
+       <action name="gzAssess" class="com.ytf.action.userOption" method="gzAssess">
+           <result name="success">employer/mylikes.jsp</result>
+       </action>
+       
+    </package>
+    <package name="json" extends="json-default">
+        <action name="queryBm" class="com.ytf.dao.BmInfo" method="queryBm">
+           <result type="json" name="query">
+               <param name="root">bm</param>
+           </result>
+       </action>
+       <action name="showAll" class="com.ytf.dao.BmInfo" method="showAll">
+           <result type="json" name="ready">
+               <param name="root">all</param>
+           </result>
+       </action>
+       <action name="detail" class="com.ytf.dao.BmInfo" method="detail">
+           <result type="json" name="detail">
+               <param name="root">bmdetail</param>
+           </result>
+       </action>
+       <action name="showgzBook" class="com.ytf.action.userOption" method="showgzBook">
+           <result type="json" name="gzBook">
+               <param name="root">gzBook</param>
+           </result>
+       </action>
+       <action name="showbmBook" class="com.ytf.action.userOption" method="showbmBook">
+           <result type="json" name="bmBook">
+               <param name="root">bmBook</param>
+           </result>
+       </action>
+       <action name="gzSignAgree" class="com.ytf.action.userOption" method="gzSignAgree">
+           <result type="json" name="contract">
+               <param name="root">contract</param>
+           </result>
+       </action>
+       <action name="bmSignAgree" class="com.ytf.action.userOption" method="bmSignAgree">
+           <result type="json" name="contract">
+               <param name="root">contract</param>
+           </result>
+       </action>
+       <action name="gzIsAssess" class="com.ytf.action.userOption" method="gzIsAssess">
+           <result type="json" name="assess">
+               <param name="root">assess</param>
+           </result>
+       </action>
+       <action name="showCompanyCard" class="com.ytf.action.AJAXShowInfo" method="showCompanyCard">
+           <result type="json" name="company">
+               <param name="root">company</param>
+           </result>
+       </action>
+       <action name="showNews" class="com.ytf.action.AJAXShowInfo" method="showNews">
+           <result type="json" name="news">
+               <param name="root">news</param>
+           </result>
+       </action>
+       <action name="showGQInfo" class="com.ytf.action.AJAXShowInfo" method="showGQInfo">
+           <result type="json" name="gqInfo">
+               <param name="root">gqInfo</param>
+           </result>
+       </action>
+       <action name="showGQDetail" class="com.ytf.action.AJAXShowInfo" method="showGQDetail">
+           <result type="json" name="gqDetail">
+               <param name="root">gqDetail</param>
+           </result>
+       </action>
+       <action name="showNewsDetail" class="com.ytf.action.AJAXShowInfo" method="showNewsDetail">
+           <result type="json" name="newsDetail">
+               <param name="root">newsDetail</param>
+           </result>
+       </action>
+       <action name="newTips" class="com.ytf.action.userOption" method="newTips">
+           <result type="json" name="message">
+               <param name="root">message</param>
+           </result>
+       </action>
+    </package>
+    <package name="adminManage" extends="struts-default" namespace="/admin">
+        <action name="adminLogin" class="com.ytf.action.ManageAction" method="Login">
+            <result name="success" type="redirectAction">Manage</result>
+            <result name="input">login.jsp</result>
+        </action>
+        <action name="Manage">
+            <result>index.jsp</result>
+        </action>
+        <action name="addNews" class="com.ytf.action.ManageAction" method="addNews">
+            <result>addNews.jsp</result>
+        </action>
+        <action name="deleNews" class="com.ytf.action.ManageAction" method="deleNews">
+            <result>adminNews.jsp</result>
+        </action>
+        <action name="confirmCont" class="com.ytf.action.ManageAction" method="confirmCont">
+            <result>confirmCont.jsp</result>
+        </action>
+        <action name="deleBm" class="com.ytf.action.ManageAction" method="deleBm">
+            <result>deleBm.jsp</result>
+        </action>
+        <action name="reviewGYInfo" class="com.ytf.action.ManageAction" method="reviewGYInfo">
+            <result>reviewGYInfo.jsp</result>
+        </action>
+        <action name="deleGz" class="com.ytf.action.ManageAction" method="deleGz">
+            <result>deleGz.jsp</result>
+        </action>
+        <action name="reviewXQInfo" class="com.ytf.action.ManageAction" method="reviewXQInfo">
+            <result>reviewXQInfo.jsp</result>
+        </action>
+        <action name="deleQy" class="com.ytf.action.ManageAction" method="deleQy">
+            <result>deleQy.jsp</result>
+        </action>
+        <action name="addAdmin" class="com.ytf.action.ManageAction" method="addAdmin">
+            <result>addAdmin.jsp</result>
+        </action>
+        <action name="deleAdmin" class="com.ytf.action.ManageAction" method="deleAdmin">
+            <result>deleAdmin.jsp</result>
+        </action>
+        <action name="rateBm" class="com.ytf.action.ManageAction" method="rateBm">
+            <result>rateBm.jsp</result>
+        </action>
+    </package>
+</struts>

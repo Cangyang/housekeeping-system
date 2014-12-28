@@ -1,0 +1,549 @@
+@CHARSET "UTF-8";
+/**********************
+
+@file    : Style.css
+@version : CSS 2.1
+@author  : yangtengfei
+@update  : 2014-3-16 14:00
+@note    : null
+
+/* 修正IE6振动bug */
+* html, * html body { 
+	background-image: url(about:blank); 
+	background-attachment: fixed; 
+}
+/*** 格式化标签 ***/
+html, body { 
+	padding: 0; 
+	margin: 0; 
+}
+div, form, img, ul, ol, li, dl, dd, dt, p, th { 
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+}
+h1, h2, h3, h4, h5, h6 { 
+	margin: 0; 
+	padding: 0;  
+}
+table, td, tr, th { 
+	font-size: 12px; 
+}
+li { 
+	list-style-type: none; 
+}
+b, em { 
+	font-style: normal; 
+}
+table { 
+	margin: 0 auto; 
+	width: 100%; 
+}
+.Clear { 
+	clear: both; 
+}
+
+/*** 网页布局/盒子模型，及本站公共样式 ***/
+body { color: #333; font-size: 12px; font-family: 宋体; background-color:#2E8B57; }
+a:link { color: #333; text-decoration: none; }
+a:visited { color: #333; text-decoration: none; }
+a:hover { color: #f60; text-decoration: underline; }
+a:active { color: #f60; text-decoration: underline; }
+
+.BodyWrap { padding: 13px 0 0 0;}
+.BodyInner { width: 960px; margin: 0 auto; background-color: #fff; padding: 0 10px 10px;  background-image: url(../images/bg06.jpg); background-repeat: no-repeat; background-size: cover;}
+
+
+
+/*header 头部内容*/
+
+.HeaderTxt { position: relative; height: 25px; border-bottom: solid 1px #000; margin-bottom: 5px; }
+.LogoWrap { text-align: left; background-color: #fff;}
+.LogoWrapLeft { float: left;  width: 200px; height: 180px; padding-top: 10px; padding-left: 0;}
+.LogoWrapRight { float: left; }
+.LogoWrapRightAd { margin-bottom: 5px; height: 100px}
+.LogoWrapRightTxt { height: 100px; position: relative;}
+.TxtRightBottom { position: absolute; right: 0; bottom: 0;  font-size: 20px;}
+.MenuWrap { position； relative;}
+.wrapRightTxt {
+	height: 100px;
+	text-align:center;
+	font-size:18px;
+	font-style: italic;
+	font-weight: bold;
+	color: red;
+	position: relative;
+}
+.middleTitle {
+	position: absolute;
+	bottom:0;
+}
+
+
+/**** 多种颜色链接 ***/
+.aWhite, a.aWhite:link, a.aWhite:visited { color: White; }
+.aGray, a.aGray:link, a.aGray:visited { color: #333; }
+.aBlack, a.aBlack:link, a.aBlack:visited { color: Black; }
+.aBlue, a.aBlue:link, a.aBlue:visited { color: #014CCC; }
+.aLightblue, a.aLightblue:link, a.aLightblue:visited { color: #3FB3DA; }
+.aYellow, a.aYellow:link, a.aYellow:visited { color: #ff6c00; }
+.aGreen, a.aGreen:link, a.aGreen:visited { color: Green; }
+.aPeaGreen, a.aPeaGreen:link, a.aPeaGreen:visited { color: #7C9F1D; }
+.aRed, a.aRed:link, a.aRed:visited { color: #FF0000; }
+
+
+/**** 导航栏设置***/
+/***border-bottom:3px solid #34538b**/
+.nav_menu{width: 960px; position: relative; border-bottom: 5px solid red;}
+.lavaLamp{position:relative; width:800px; height:43px; padding:15px;  margin: 0 auto;}
+.lavaLamp li{float:left; width: 160px; height: 100%; background-repeat: no-repeat;}
+.lavaLamp li a{float:left; font-weight:bold; color:#333333; font-size:16px; top:8px; margin:auto 10px; text-decoration:none; position:relative; z-index:3;}
+.lavaLamp li a:hover{text-decoration:none; color:#333333;}
+.lavaLamp li.back{height:43px; BACKGROUND: url(../images/bgtab.gif) no-repeat 0px 0px; position:absolute; z-index:2;}
+/**此处为广告banner图片位置
+/**.nav_Ad{text-align: center; width: 960px; height: 100px;}
+/**.nav_Ad img { height: 90px; width: 728px; margin: 0 auto;}
+
+/*bottom 底部内容*/
+.FooterWrap { padding: 0 10px; color: #fff; }
+.CopyRight { padding: 20px 0 40px; text-align: center; line-height: 20px; font-family: Verdana, Helvetica; font-size: 16px;}
+.CopyRight a { color: #fff; }
+
+/* 友情链接 */
+.FriendLinks {  height:60px; width: 960px; padding:0 10px 1 10px; border: solid 1px #B6D3EB;}
+.FriendLinks h3 { height: 40px; text-align: left; padding-left: 10px; line-height: 40px; border-bottom: solid 2px #B6D3EB; font-size: 16px;}
+
+.FriendLinks ul.TxtLinks { height: 20px; padding: 2px 2px 2px 10px; }
+.FriendLinks ul.TxtLinks li { float: left; width: 103px; line-height: 20px; border-right: solid 1px #B6D3EB; text-align: center; }
+
+/* index */
+#flipbook {
+	padding: 10px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+	margin: 20px auto;
+	width: 600px;
+	height: 330px;
+	background: #fff;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#flipbook .slide {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	padding: 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	left: 0;
+}
+
+#flipbook .slide .img {
+	width: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 310px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background-size: 200% !important;
+	background-repeat: no-repeat !important;
+	-webkit-transition-property: -webkit-transform, box-shadow;
+	-webkit-transition-timing-function: linear, linear;
+	transition-property: transform, box-shadow;
+	transition-timing-function: linear, linear;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+#flipbook {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+#flipbook .prev, #flipbook .next {
+	z-index: 999999999;
+	position: absolute;
+	background: black;
+	padding: 20px;
+	color: #fff;
+	top: 30%;
+	width: 64px;
+	height: 64px;
+	box-sizing: border-box;
+	font-size: 2em;
+	cursor: pointer;
+	background: #154a67;
+	-moz-box-sizing: border-box;
+	font-family: 'SSStandard', sans-serif;
+}
+
+#flipbook .next {
+	right: -64px;
+	box-shadow: inset 50px 0 30px -30px rgba(0,0,0,0.3);
+}
+
+#flipbook .prev {
+	left: -64px;
+	box-shadow: inset -50px 0 30px -30px rgba(0,0,0,0.3);
+}
+
+#flipbook .prev:hover, #flipbook .next:hover {
+	background: #1f6387;
+}
+
+#flipbook .prev:active {
+	box-shadow: inset -50px 0 30px -30px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+#flipbook .next:active {
+	box-shadow: inset 50px 0 30px -30px rgba(0,0,0,0.3), inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+#flipbook .current {
+	z-index: 99999;
+}
+
+#flipbook .slide .content {
+	position: absolute;
+	bottom: -75%;
+	z-index: 99999999;
+	background: rgba(0,0,0,0.3);
+	width: 100%;
+	left: 0;
+	padding: 20px;
+	font-size: 2.2em;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#flipbook .slide .content a {
+	color: #fff;
+}
+
+#flipbook .slide .slideup {
+	bottom: 0;
+	z-index: 99999999;
+}
+
+#pagination {
+	position: absolute;
+	bottom: 13px;
+	right: 12px;
+}
+
+#pagination div {
+	background: black;
+	width: 16px;
+	height: 16px;
+	border-radius: 100px;
+	float: left;
+	cursor: pointer;
+	margin: 0 5px 0 0;
+}
+
+#pagination .cur {
+	background: #42cae8;
+	box-shadow: inset 0 3px 7px rgba(0,0,0,0.2);
+}
+
+@media screen and (max-width: 1000px) {
+	#flipbook {
+		width: 100%;
+		height: 200px;
+		margin: 0;
+	}	
+	#flipbook .next, #flipbook .prev {
+		right: 0;
+		top: 0;
+		width: 44px;
+		height: 44px;
+		padding: 10px;
+	}
+	
+	#flipbook .prev {
+		left: 0;
+		right: auto;
+	}
+}
+.innerContent .news {
+	width: 550px;
+	height: 300px;
+}
+.innerContent .news p {
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+	border-bottom: 1px solid;
+}
+.innerContent .news #newsList {
+	font-size: 14px;
+}
+#newsList li {
+	margin: 6px 4px;
+	color: blue;
+}
+.innerContent .board{
+	width: 400px;
+	height: 300px;
+}
+.innerContent .board p {
+	font-size: 14px;
+	font-weight: bold;
+	height: 20px;
+	border-bottom: 1px solid;
+}
+.innerContent .board marquee {
+	margin :2px;
+	padding: 5px;
+}
+
+
+/* employee */
+.BmNav p{font-size: 20px; font-weight: bold; color: tomato; text-align:center; margin-top: 20px; margin-bottom: 15px;}
+.BmNav table {width:600px; margin-left: 20px; border: 1px solid silver;}
+table .colmnHead{ width:50px; margin-left: 5px; font-size: 18px; font-weight: bold; color: #fff; background-color: #9ACD32;}
+table .colmnOp{text-align: left;}
+table .tips{color: blue; font-size: 18px;}
+table .button{text-align: center; margin: 10px auto;}
+.bmInfo ul{
+	list-style: none; 
+	width: 680px;
+	margin: 10px;
+}
+.bmInfo ul li {
+	float: left; 
+	margin: 5px; 
+	padding: 2px;
+	text-align: center;
+	border: 1px solid silver;
+}
+.bmInfo ul li img {
+	height:100px;
+    width: 100px; 
+}
+/* info */
+.gqInfo {
+	margin: 5px auto;
+	padding: 5px ;
+	width: 940px;
+	height: 500px;
+	border: 1px solid #ccc;
+	background-color: #F9F9F9;
+	display: inline-table;
+}
+.gqInfo .supplyInfo {
+	width: 470px;
+	margin: 5px 14px;
+	float: left;
+	border-right: 1px solid #ccc;
+	height: 600px;
+}
+.gqInfo .demandInfo {
+	width: 430px;
+	margin: 5px ;
+	float: right;
+	height: 600px;
+}
+#supplyInfo li {
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	color: blue;
+	padding: 2px;
+}
+#supplyInfo a {
+	color: blue;
+}
+#demandInfo li {
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: blue;
+	padding: 2px;
+}
+#demandInfo a {
+	color: blue;
+}
+/*company*/
+.cardWrap {
+	margin: 5px auto;
+	padding: 5px ;
+	width: 940px;
+	height: 500px;
+	border: 1px solid #ccc;
+	background-color: #F9F9F9;
+}
+.cardWrap .card {
+	border: 1px solid #ff0000;
+	background-color: #fff;
+	font-size: 14px;
+	margin: 5px 2px;
+	padding: 4px;
+	float: left;
+	width: 220px;
+}
+.cardWrap .card .title {
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	color: #06c;
+	padding: 2px;
+}
+.cardWrap .card .desc {
+	color: #2E8B57;
+}
+.cardWrap h3 {
+	margin: 4px;
+}
+
+
+/* userCenter */
+.userCenter {margin: 0; padding: 0; position: float;} 
+.userOption {width: 140px; border: 2px solid #6B8E23; margin: 0; padding: 5px; float: left; margin: 10px }
+.userOption li {margin-bottom: 10px; text-align: center;}
+.userOption li a {height: 30px; line-height: 30px; text-align: center; color: #333; font-size: 20px; font-weight: bold; text-decoration: none; background:#fff; padding: 5px;}
+.userInfo { width: 780px; height: 800px; border-left: 2px solid #6B8E23; border-top: 2px solid #6B8E23; float: right;}
+
+.error { width:500px; height:300px; margin:20px auto;}
+.error p {text-align: center; font-size: 20px; color: red;}
+.error div {text-align: center; font-size: 16px; color: blue; margin:10px;}
+.userInfo #myMessage {
+	float: left;
+	margin: 10px 30px;
+	width: 460px;
+	height: 270px;
+	
+}
+.userInfo #myMessage p {
+	color: blue;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+	line-height: 20px;
+	margin: 4px ;
+}
+.userInfo #myMessage li {
+	padding: 4px 8px 4px;
+	color: orange;
+	text-align: left;
+	font-size: 16px;
+	line-height: 16px;
+}
+/* busiCard */
+.userInfo .busCard {
+	margin: 10px auto;
+	padding: 10px;
+	width: 500px;
+	border: 1px solid silver;
+}
+.userInfo .busCard thead td {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: red;
+}
+.userInfo .busCard td {
+	font-size: 16px;
+	text-align:left;
+}
+.userInfo .busCard span {
+	background-color: #B0E0E6;
+}
+/*psinfo*/
+.userInfo .mainInfo { margin: 10px auto; width: 700px; }
+.userInfo .mainInfo thead td { font-size: 20px; color: red; text-align: center; font-weight: bold;}
+.userInfo .mainInfo  th { width: 150px; text-align: right; border: 1px solid silver; background-color: #B0E0E6; height: 34px; line-height: 34px; font-size: 18px;}
+.userInfo .mainInfo  td {  text-align: left; border: 1px solid silver; height: 34px; line-height: 34px; font-size: 18px;}
+/*addInfo*/
+.userInfo .addInfo { width: 600px; margin: 10px auto; padding: 10px; border: 1px solid silver;}
+.userInfo .addInfo th {font-size: 20px; color: red; text-align: center; }
+.userInfo .addInfo td {font-size: 16px; text-align: left; vertical-align: middle;}
+.userInfo .addInfo span {color: brown;}
+/*mybook*/
+.userInfo .mybook {
+	margin: 10px auto;
+	border-collapse: collapse;
+	width: 780px;
+}
+.userInfo .mybook thead td {
+	font-weight: bold;
+	color: red;
+	font-size: 20px;
+	text-align: center;
+	border: 0;
+}
+.userInfo .mybook td {
+	border : 1px solid silver;
+	text-align: center;
+}
+.userInfo .mybook th {
+	padding: 6px;
+}
+.userInfo .mybook #content {
+	width:100px;
+}
+.userInfo #select {
+	text-align: center;
+	margin: 0 300px;
+	color: blue;
+}
+.userInfo #nicai {
+	text-align: center;
+	margin: 10px auto;
+	color: blue;
+	font-size: 14px;
+}
+/*mycontract*/
+.userInfo #contract {
+	border: 1px solid;
+	width: 700px;
+	margin: 20px auto;
+	padding: 20px;
+	font-size: 14px;
+}
+.userInfo #signInput {
+	text-align: center;
+}
+.userInfo #message {
+	margin: 10px;
+	font-size: 14px;
+	color: red;
+	text-align: center;
+}
+/*mylikes*/
+.userInfo .assess {
+	margin: 10px auto;
+	padding: 10px;
+	border-collapse: collapse;
+	width: 600px;
+}
+.userInfo .assess thead td {
+	font-weight: bold;
+	color: red;
+	font-size: 20px;
+	text-align: center;
+	border: 0;
+}
+.userInfo .assess span {
+	color: brown;
+	
+}
+.userInfo .assess td {
+	padding: 18px 6px;
+	font-size: 16px;
+}
+.userInfo #assessInfo {
+	color: red;
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	padding: 6px;
+	margin: 4px;
+	text-align: center;
+}
